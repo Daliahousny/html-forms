@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="login_style.css">
+        <title>Emergency Diagnoser</title>
+    </head>
+    <body>
+        <div class="background">
+           <div class="website_title">
+            Hello, and Welcome to AI Emergency Diagnoser
+            <i class="fa-solid fa-cat"></i>
+           </div>
+           <div class="website_title2">
+            We are here to help you find what's wrong with your beloved cat,
+           </div>
+           <div class="website_title2">
+            just enter the symptoms and we will show you the results.
+           </div>
+           
+           <div>
+            <form class="form1" name="personal_form" action="disease_page.html" target="_self" method="post" >
+                <label class="label" for="user">Username</label><br>
+                <input class="input" type="text" id="user" name="user" placeholder="eg:daliahousny" required><br><br>
+                <label class="label" for="pwd">Password</label><br>
+                <input class="input" type="password" id="pwd" name="pwd" required><br><br>
+                <input class="button" type="submit" value="Log In" onclick="validateForm()">
+                <input class="button" type="reset" value="Reset">
+            </form>  
+           </div>
+           <br>
+           <div>
+            <label class="q" for="signup">Don't have an account?</label><br><br>
+            <button class="button2" onclick="window.location.href='signup_page.html';">Sign Up NOW</button>
+           </div>
+        </div>
+        <script>
+            function validateForm(){
+                let username=document.forms["personal_form"]["user"].value;
+                let password=document.forms["personal_form"]["pwd"].value;
+                if(username=="" && password==""){
+                    alert("Please,fill in your information")
+                }
+                else if(username==""){
+                    alert("Username cannot be empty")
+                }
+                else if(password==""){
+                    alert("Password cannot be empty")
+                }
+                 
+            }
+            function showpage(){
+                window.location.href='disease_page.html';
+            }
+        </script>
+    </body>
+</html>

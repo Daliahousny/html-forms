@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Disease Page</title>
+  <link rel="stylesheet" href="disease_style.css" />
+</head>
+
+<body>
+  <div class="img">
+    <div class="column1">
+      <form class="form1" name="symptoms" method="post">
+        <fieldset>
+          <legend class="legend">
+            Please describe the symptoms you noticed on your cat.
+          </legend>
+          <div class="first">
+            <label class="label2" for="title" >1-Urination Level</label><br />
+            <input type="radio" id="frequent" name="urination" required />
+            <label class="label" for="frequent">Frequent.</label><br />
+            <input type="radio" id="low" name="urination" required />
+            <label class="label" for="low">Low.</label><br /><br />
+          </div>
+          <div class="first">
+            <label class="label2" for="title" >2.Appetite</label><br />
+            <input type="checkbox" id="strong" name="appetite" />
+            <label class="label" for="strong" >Strong.</label><br />
+            <input type="checkbox" id="weak" name="appetite" />
+            <label class="label" for="weak" >Weak.</label><br /><br />
+          </div>
+          <div class="first">
+            <label class="label2" for="title">3-Weight</label><br />
+            <input type="radio" id="gain" name="weight" required />
+            <label class="label" for="gain" >Gaining.</label><br />
+            <input type="radio" id="loss" name="weight" required />
+            <label class="label" for="loss">Losing.</label><br /><br />
+          </div>
+          <div class="second">
+            <label class="label2" for="title">4-Temperature</label><br />
+            <input type="radio" id="high" name="fever" />
+            <label class="label" for="high" >High (Fever).</label><br />
+            <input type="radio" id="normal" name="fever" />
+            <label class="label" for="normal" >Normal.</label><br /><br />
+          </div>
+          <div class="first">
+            <label class="label2" for="title">5-Itching</label><br>
+            <input type="checkbox" id="itchy" name="itching" />
+            <label class="label" for="itchy">Yes.</label><br />
+            <input type="checkbox" id="notitchy" name="itching" />
+            <label class="label" for="notitchy">No.</label>
+          </div>
+          <input class="button" type="button" value="View Results " onclick="ViewResult()" style="margin-left: 100px;">
+          
+          <input class="button" type="reset" value="Reset" id="reset" style="margin-left: 100px;" />
+          <button type="button" class="button" onclick="undo()" style="margin-left: 100px;" >Restart</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div>
+      <form class="form2" id="form2" style="display: none">
+        <fieldset>
+          <legend class="legend">Results</legend>
+          <div>
+            
+            <div class="message" id="message1"></div>
+            <div class="message" id="description1"></div>
+            <div class="message" id="message2"></div>
+            <div class="message" id="description2"></div>
+            <div class="message" id="message3"></div>
+            <div class="message" id="not"></div>
+            <br />
+            <div>
+              <form class="form2" style="display: none">
+                <fieldset>
+                  <legend class="legend">Warning</legend>
+                  <div class="message" id="warning"></div>
+                </fieldset>
+                <div>
+                  <form class="form2"id="form2">
+                    <fieldset>
+                      <legend class="legend">Do you need Recommendations of vets nearby?</legend>
+                      <div class="second">
+                        <label class="label2" for="areas">Choose Area</label><br>
+                        <input type="checkbox" id="maadi" name="maadi">
+                        <label class="label2" for="maadi">Maadi</label><br>
+                        <input type="checkbox" id="dokki" name="dokki">
+                        <label class="label2" for="dokki">Dokki</label><br>
+                        <input type="checkbox" id="helwan" name="helwan">
+                        <label class="label2" for="helwan">Helwan</label>
+                      </div>
+                      <button class="button" type="button" onclick="viewDr()" style="margin-left: 100px;">List Vets</button>
+                      <div>
+                        <div class="address" id="address1"></div>
+                        <div class="address" id="address2"></div>
+                        <div class="address" id="address3"></div>
+                        <input type="reset" class="button" value="Reset" style="margin-left:100px ;">
+                        </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </form>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+<script>
+  
+   function ViewResult() {
+      var not="Sorry, we don't recognize this disease."
+      var warning =
+        "Please note that you can't take this diagnosis as an alternative to your visit to the vet, we are just trying to help in emergency cases until you pick up a suitable appointment.";
+      //case1:diabetes
+      //High urination,losing weight,change in appetite,normal temp.
+      var message1 =
+        "Unfortunately, Your cat may be suffering from Diabetes.";
+      var description1 =
+        "Diabetes is a disease where cats are unable to produce insulin. But, don't worry it can be managed.";
+
+      if (document.getElementById("frequent").checked == true &&
+        (document.getElementById("strong").checked == true ||
+          document.getElementById("weak").checked == true) &&
+        document.getElementById("loss").checked == true &&
+        document.getElementById("normal").checked == true) {
+        document.getElementById("message1").innerHTML = message1;
+        document.getElementById("description1").innerHTML = description1;
+        document.getElementById("warning").innerHTML = warning;
+        document.getElementById("form2").style.display = "block";
+      }
+      //case2:FIV
+      //frequent urination,weight loss,losing appetite,fever.
+      var message2 = "Unfortunately,your cat may be suffering from FIV";
+      var description2 =
+        "FIV is Feline Immunodeficiency Virus, it severely weakens a cat’s immune system and makes them highly susceptible to secondary infections.";
+      if (document.getElementById("frequent").checked == true &&
+        document.getElementById("weak").checked == true &&
+        document.getElementById("loss").checked == true &&
+        document.getElementById("high").checked == true ) {
+        document.getElementById("message2").innerHTML = message2;
+        document.getElementById("description2").innerHTML = description2;
+        document.getElementById("warning").innerHTML = warning;
+        document.getElementById("form2").style.display = "block";
+      }
+       //case3:worms
+      //weight loss,itching,strong appetite
+      else if(document.getElementById('strong').checked == true &&
+        document.getElementById('loss').checked == true &&
+        document.getElementById('itchy').checked == true){
+          var message3 = "Unfortunately,your cat may be suffering from Worms."
+          document.getElementById("message3").innerHTML = message3;
+        document.getElementById("warning").innerHTML = warning;
+        document.getElementById("form2").style.display = "block";
+    }
+    
+    else if(document.getElementById("frequent").checked == false &&
+        document.getElementById("low").checked==false &&
+        (document.getElementById("strong").checked == false ||
+          document.getElementById("weak").checked == false) &&
+        document.getElementById("loss").checked == false &&
+        document.getElementById("normal").checked == false &&
+        document.getElementById('itchy').checked == false &&
+        document.getElementById('notitchy').checked == false){
+        alert("Form can't be empty");
+      }
+    else{
+      document.getElementById('form2').style.display="block";
+      document.getElementById("warning").innerHTML = warning;
+      document.getElementById('not').innerHTML=not;
+    }
+  }
+
+
+
+    function viewDr(){
+      var address1="Orange Vet Center,11 Gamal Salem,Mossadak.";
+      var address2="Modern Vet Clinic,12 street 210.";
+      var address3="Animal Care Vet Clinic,Bostan Street."
+      if(document.getElementById('dokki').checked==true &&
+      document.getElementById('maadi').checked==false &&
+      document.getElementById('helwan').checked==false){
+        document.getElementById('address1').innerHTML=address1;
+      }
+      else if(
+        document.getElementById('dokki').checked==false &&
+      document.getElementById('maadi').checked==true &&
+      document.getElementById('helwan').checked==false
+      ){
+        document.getElementById('address2').innerHTML=address2;
+      }
+
+    else if(
+      document.getElementById('dokki').checked==false &&
+      document.getElementById('maadi').checked==false &&
+      document.getElementById('helwan').checked==true
+    )
+    {
+      document.getElementById('address3').innerHTML=address3;
+    }
+    else if(
+      document.getElementById('dokki').checked==true &&
+      document.getElementById('maadi').checked==true&&
+      document.getElementById('helwan').checked==true
+    ){
+      document.getElementById('address1').innerHTML=address1;
+      document.getElementById('address2').innerHTML=address2;
+      document.getElementById('address3').innerHTML=address3;
+    }
+    else if(
+      document.getElementById('dokki').checked==true &&
+      document.getElementById('maadi').checked==true &&
+      document.getElementById('helwan').checked==false
+    )
+    {
+      document.getElementById('address1').innerHTML=address1;
+      document.getElementById('address2').innerHTML=address2;
+    }
+    else if(
+      document.getElementById('dokki').checked==false &&
+      document.getElementById('maadi').checked==true &&
+      document.getElementById('helwan').checked==true
+    )
+      {
+        document.getElementById('address2').innerHTML=address2;
+        document.getElementById('address3').innerHTML=address3;
+      }
+      else{
+        document.getElementById('address1').innerHTML=address1;
+        document.getElementById('address2').innerHTML=address2;
+      document.getElementById('address3').innerHTML=address3;
+      }
+    }
+
+    
+
+    function undo(){
+      const element=document.getElementById('form2');
+      element.remove();
+    }
+
+    function undo2(){
+      const element2=document.getElementById('form3');
+      element2.remove();
+    }
+  </script>
+</body>
+
+</html>

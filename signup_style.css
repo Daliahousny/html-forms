@@ -1,0 +1,119 @@
+body{
+    width:100%;
+    height: 100%;
+
+}
+.img{
+    background-image: url("edited.jpg");
+    backdrop-filter: greyscale(5px);
+    background-size: cover;
+    width: 100%;
+    height: 570px;
+    background-attachment: fixed;
+}
+
+.column1{
+    float:left;
+    width:50%
+}
+
+.legend{
+    font-size: larger;
+    color: black;
+    font-weight: bold;
+}
+.form1{
+    opacity: 1px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(7px);
+    width: 550px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    text-align: center;
+    margin-left: 600px;
+    border-radius: 10px;
+    position: fixed;
+}
+
+.input{
+    width: 500px;
+    height: 20px;
+    border-radius: 10px;
+    border-color: white;
+    border-style: none;
+    background-color: antiquewhite;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+
+
+.label{
+    margin-right: 400px;
+    font-size: large;
+    color: brown;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.label2{
+    margin-right: 420px;
+    font-size: large;
+    color: brown;
+    font-weight: bold;
+}
+.select{
+    width: 500px;
+    height: 20px;
+    border-radius: 10px;
+    border-color: white;
+    border-style: none;
+    background-color: antiquewhite;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+
+.button{
+    border-radius: 10px;
+    border-style: groove;
+    background-color: white;
+    width:100px;
+    font-weight: bold;
+    color:cadetblue;
+    font-size: large;
+}
+
+.form2{
+    opacity: 1px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    width: 500px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    text-align: center;
+    margin-left: 700px;
+    position:absolute;
+}
+
+.message{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    font-style: italic;
+    font-weight: bold;
+    color: brown;
+}
+
+.website_title{
+    font-size: xx-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    font-weight: bold;
+    margin-left: 250px;
+}
+
+.website_title2{
+    font-size: larger;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: brown;
+    text-align: center;
+    font-weight: bold;
+}
